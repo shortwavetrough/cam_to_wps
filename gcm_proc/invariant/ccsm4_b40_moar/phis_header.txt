@@ -1,0 +1,41 @@
+netcdf phis {
+dimensions:
+	time = UNLIMITED ; // (1 currently)
+	lat = 192 ;
+	lon = 288 ;
+	tbnd = 2 ;
+variables:
+	float PHIS(time, lat, lon) ;
+		PHIS:long_name = "Surface geopotential" ;
+		PHIS:units = "m2/s2" ;
+		PHIS:_FillValue = 9.96921e+36f ;
+	double lat(lat) ;
+		lat:long_name = "latitude" ;
+		lat:units = "degrees_north" ;
+	double lon(lon) ;
+		lon:long_name = "longitude" ;
+		lon:units = "degrees_east" ;
+	double time(time) ;
+		time:long_name = "time" ;
+		time:units = "days since 1850-01-01 00:00:00" ;
+		time:calendar = "noleap" ;
+		time:bounds = "time_bnds" ;
+		time:_FillValue = 9.96920996838687e+36 ;
+	double time_bnds(time, tbnd) ;
+		time_bnds:long_name = "time interval endpoints" ;
+
+// global attributes:
+		:Conventions = "CF-1.0" ;
+		:source = "CAM" ;
+		:case = "b40.20th.track1.1deg.012" ;
+		:title = "UNSET" ;
+		:logname = "mai" ;
+		:host = "be0903en.ucar.ed" ;
+		:Version = "$Name$" ;
+		:revision_Id = "$Id$" ;
+		:initial_file = "/fis/cgd/cseg/csm/inputdata/atm/cam/inic/fv/cami_1987-01-01_0.9x1.25_L26_c060703.nc" ;
+		:topography_file = "/fis/cgd/cseg/csm/inputdata/atm/cam/topo/USGS-gtopo30_0.9x1.25_remap_c051027.nc" ;
+		:history = "Wed Nov 12 23:09:23 2014: ncks -d time,0 -v PHIS b40.20th.track1.1deg.012.cam2.h3.1979-08-29-21600.nc phis.nc\n",
+		:nco_openmp_thread_number = 1 ;
+		:NCO = "4.3.7" ;
+}

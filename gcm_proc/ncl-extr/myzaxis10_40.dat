@@ -1,0 +1,7 @@
+zaxistype = depth_below_land
+size = 1
+name = depth
+longname = depth_below_land
+units = cm
+lbounds = 10
+ubounds = 40
